@@ -7,7 +7,7 @@ FROM spack/ubuntu-bionic:latest as builder
 RUN mkdir /opt/spack-environment \
 &&  (echo "spack:" \
 &&   echo "  specs:" \
-&&   echo "  - pkgconf" \
+&&   echo "  - hiop@0.4.6+mpi+raja^openmpi" \
 &&   echo "  config:" \
 &&   echo "    clingo: true" \
 &&   echo "    install_tree: /opt/software" \
