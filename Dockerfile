@@ -7,7 +7,7 @@ FROM spack/ubuntu-bionic:latest as builder
 RUN mkdir /opt/spack-environment \
 &&  (echo "spack:" \
 &&   echo "  specs:" \
-&&   echo "  - petsc~hypre~hdf5~metis~superlu-dist" \
+&&   echo "  - pkgconf" \
 &&   echo "  config:" \
 &&   echo "    clingo: true" \
 &&   echo "    install_tree: /opt/software" \
@@ -16,6 +16,18 @@ RUN mkdir /opt/spack-environment \
 &&   echo "    all:" \
 &&   echo "      target:" \
 &&   echo "      - x86_64" \
+&&   echo "    openssl:" \
+&&   echo "      version:" \
+&&   echo "      - 1.1.1g" \
+&&   echo "    openblas:" \
+&&   echo "      version:" \
+&&   echo "      - 0.3.10" \
+&&   echo "    openmpi:" \
+&&   echo "      version:" \
+&&   echo "      - 3.1.6" \
+&&   echo "    perl:" \
+&&   echo "      version:" \
+&&   echo "      - 5.30.3" \
 &&   echo "  concretization: together") > /opt/spack-environment/spack.yaml
 
 # Install the software, remove unnecessary deps
