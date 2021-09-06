@@ -1,0 +1,23 @@
+name: Docker build
+on: push
+jobs:
+  docker:
+    name: Kaniko Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Kaniko Build
+        uses: aevea/action-kaniko@master
+        with:
+          image: ashermancinelli/oci-builder-kaniko
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          cache: true
+          cache_registry: ashermancinelli/oci-builder-cache
+
+            # with:
+            #   registry: registry.gitlab.com
+            #   username: ${{ secrets.GL_REGISTRY_USERNAME }}
+            #   password: ${{ secrets.GL_REGISTRY_PASSWORD }}
+            #   image: aevea/kaniko
+            #   cache: true

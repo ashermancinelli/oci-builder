@@ -1,0 +1,8 @@
+spack:
+  specs:
+  - pkgconf
+  config:
+    clingo: true
+  container:
+    format: docker
+  view: false
