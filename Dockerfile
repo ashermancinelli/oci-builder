@@ -7,11 +7,15 @@ FROM spack/ubuntu-bionic:latest as builder
 RUN mkdir /opt/spack-environment \
 &&  (echo "spack:" \
 &&   echo "  specs:" \
-&&   echo "  - pkgconf" \
+&&   echo "  - petsc~hypre~hdf5~metis~superlu-dist" \
 &&   echo "  config:" \
 &&   echo "    clingo: true" \
 &&   echo "    install_tree: /opt/software" \
 &&   echo "  view: /opt/view" \
+&&   echo "  packages:" \
+&&   echo "    all:" \
+&&   echo "      target:" \
+&&   echo "      - x86_64" \
 &&   echo "  concretization: together") > /opt/spack-environment/spack.yaml
 
 # Install the software, remove unnecessary deps
