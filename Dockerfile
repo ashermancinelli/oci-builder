@@ -18,6 +18,7 @@ RUN mkdir /opt/spack-environment \
 RUN cd /opt/spack-environment && \
     spack mirror add e4s https://cache.e4s.io && \
     spack buildcache keys -it && \
+    spack buildcache list && \
     spack env activate . && \
     spack install --fail-fast && \
     spack gc -y
